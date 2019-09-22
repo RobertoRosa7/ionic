@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      App Renda Fixa
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <div class="cards" *ngFor="let data of fundos_arr">
+      <div class="cards-header" [ngClass]="(data.perfil == 'moderado') ? moderado : agressivo">
+        Fundo de Renda Fixa
+      </div>
+      <ul class="cards-list">
+        <li class="cards-itens">
+          <div (click)="getDetalhes(data.id, data)">
+            <div class="cnpj">
+              <h1>{{data.gestor}}</h1>
+              <p>CNPJ: {{data.cnpj}}</p>
+            </div>
+            <div class="divider"></div>
+    
+            <div class="valores">
+              <div class="minimo">
+                  <span>Valor Minimo</span>
+                  <span>Liquidez</span>
+              </div>
+              <div class="valor">
+                <span>R$ {{data.aplicacao_minima}}</span>
+                <span>{{data.liquidez}}</span>
+              </div>
+              <div class="renda">
+                <div class="renda-detalhes">
+                  <span>Rentabilidade Atual</span>
+                </div>
+                <div class="renda-valor">
+                  <span>{{data.rentabilidade}}%</span>
+                  <span>+ detalhes</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</ion-content>

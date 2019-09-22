@@ -1,0 +1,420 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Meu App Mobile
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <h4>Models</h4>
+    <ion-item>
+      <ion-label position="floating">Digite aqui sua pesquisa:</ion-label>
+      <ion-input [(ngModel)]="pesquisa" type="search"></ion-input>
+    </ion-item>
+    <ion-button expand="full" (click)="recuperar()">pesquisa</ion-button>
+
+    <p>{{ resultado }}</p>
+
+  <h1>Nevegação</h1>
+
+  <ion-button [href]="'/botoes/'" routerDirection="forward" expand="full">Botões</ion-button>
+  <ion-button (click)="routeList()" expand="full">Lista</ion-button>
+  <ion-button (click)="routeButton()" expand="full">Botões</ion-button>
+
+  <!-- 
+
+  <h4>Data Binding - ligaçao de dados</h4>
+  <h1>{{ title }}</h1>
+  
+  <h4>Event biding</h4>
+  <p>Change title: </p>
+  <ion-item>
+    <ion-label position="floating">Digite aqui:</ion-label>
+    <ion-input (input)="updateTitle()" type="text"></ion-input>
+  </ion-item>
+
+  <ion-button (click)="buttonClicked()">Button</ion-button>
+
+  <p>String Interpolation</p>
+  <span>Operação Matemática: 2 + 2 = </span><span>{{ 2 + 2 }}</span><br>
+  <span>Impressão de variáveis: </span><span>{{ title }}</span><br>
+  <span>Interpolação dentro de atributos: </span>
+  <ion-img src="{{ imgRandom }}" alt=""></ion-img>
+
+  <h4>Property Binding - ligaçao de dados</h4>
+  <ion-img [src]="imgRandom" alt=""></ion-img>
+
+  <p>Imagem local com string interpolation e property biding</p>
+  <ion-img [src]="imgLocal" alt=""></ion-img>
+  <p>string interpolations: </p>
+  <ion-img src="{{imgLocal}}" alt=""></ion-img>
+
+  <h4>Grid</h4>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6">Grid 6</ion-col>
+      <ion-col size="3">Grid 3</ion-col>
+      <ion-col size="3">Grid 3</ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">Grid 12</ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+  <h4>Grid - Offset</h4>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6">Grid 6</ion-col>
+      <ion-col size="3" offset="3">offset 3</ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <h4>Layout page - basic</h4>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="3">Menu</ion-col>
+      <ion-col size="9">Content</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="4">conteudo</ion-col>
+      <ion-col size="4">conteudo</ion-col>
+      <ion-col size="4">conteudo</ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <h4>Alinhamento de texto</h4>
+  <ion-grid>
+    <p>text-start</p>
+    <ion-row text-start>
+      <ion-col size="4">1</ion-col>
+      <ion-col size="4">2</ion-col>
+      <ion-col size="4">3</ion-col>
+    </ion-row>
+
+    <p>text-center</p>
+    <ion-row text-center>
+      <ion-col size="4">1</ion-col>
+      <ion-col size="4">2</ion-col>
+      <ion-col size="4">3</ion-col>
+    </ion-row>
+
+    <p>text-end</p>
+    <ion-row text-end>
+      <ion-col size="4">1</ion-col>
+      <ion-col size="4">2</ion-col>
+      <ion-col size="4">3</ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+  <h4>Alinhamento vertical</h4>
+  <ion-grid>
+    <p>align-items-start</p>
+    <ion-row align-items-start>
+      <ion-col size="4">1</ion-col>
+      <ion-col size="4">2</ion-col>
+      <ion-col size="4">3 <br> + <br> + </ion-col>
+    </ion-row>
+
+    <p>align-items-center</p>
+    <ion-row align-items-center>
+      <ion-col size="4">1</ion-col>
+      <ion-col size="4">2</ion-col>
+      <ion-col size="4">3 <br> + <br> + </ion-col>
+    </ion-row>
+
+    <p>align-items-end</p>
+    <ion-row align-items-end>
+      <ion-col size="4">1</ion-col>
+      <ion-col size="4">2</ion-col>
+      <ion-col size="4">3 <br> + <br> + </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+  <h4>Configurando entrada - floating, fixed e stacked.</h4>
+  <p>Floating</p>
+  <ion-item>
+    <ion-label position="floating">Seu nome:</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+
+  <p>Fixed</p>
+  <ion-item>
+    <ion-label position="fixed">Seu nome:</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+
+  <p>Stacked</p>
+  <ion-item>
+    <ion-label position="stacked">Seu nome:</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+
+  <h4>Configurando entrada - value, placeholder e clearInput</h4>
+  <p>value</p>
+  <ion-item>
+    <ion-input value="kaashi"></ion-input>
+  </ion-item>
+
+  <p>placeholder</p>
+  <ion-item>
+    <ion-input placeholder="kaashi"></ion-input>
+  </ion-item>
+
+  <p>clearInput</p>
+  <ion-item>
+    <ion-input clearInput value="kaashi"></ion-input>
+  </ion-item>
+
+  <h4>Configurando entrada - text, number, password, email, tel, url e search</h4>
+  <p>text</p>
+  <ion-item>
+      <ion-label>Nome:</ion-label>
+      <ion-input type="text" clearInput></ion-input>
+  </ion-item>
+
+  <p>number</p>
+  <ion-item>
+      <ion-label>Number:</ion-label>
+      <ion-input type="number"></ion-input>
+  </ion-item>
+
+  <p>password</p>
+  <ion-item>
+      <ion-label>Password:</ion-label>
+      <ion-input type="password" clearInput></ion-input>
+  </ion-item>
+
+  <p>email</p>
+  <ion-item>
+      <ion-label>Email:</ion-label>
+      <ion-input type="email" clearInput></ion-input>
+  </ion-item>
+
+  <p>tel</p>
+  <ion-item>
+      <ion-label>Tel:</ion-label>
+      <ion-input type="tel" clearInput></ion-input>
+  </ion-item>
+
+  <p>url</p>
+  <ion-item>
+      <ion-label>URL:</ion-label>
+      <ion-input type="url" clearInput></ion-input>
+  </ion-item>
+
+  <p>search</p>
+  <ion-item>
+      <ion-label>Search:</ion-label>
+      <ion-input type="search" clearInput></ion-input>
+  </ion-item>
+
+
+  <h1>Lista Sliding</h1>
+  <ion-list>
+    <ion-item-sliding>
+      
+      <ion-item>
+        <ion-label>Kakashi</ion-label>
+      </ion-item>
+
+      <ion-item-options>
+        <ion-item-option>
+          <ion-icon slot="start" name="create"></ion-icon>
+          Alterar
+        </ion-item-option>
+        <ion-item-option color="danger">
+          <ion-icon slot="start" name="trash"></ion-icon>
+          Excluir
+        </ion-item-option>
+      </ion-item-options>
+
+    </ion-item-sliding>
+  </ion-list>
+
+  <h1>Lista com Avatar</h1>
+  <ion-list>
+
+    <ion-item>
+      <ion-avatar slot="start">
+        <ion-img src="https://source.unsplash.com/random/200x200" alt=""></ion-img>
+      </ion-avatar>
+      <ion-label>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus, consequatur? Consectetur, ipsam. Quaerat reiciendis repellendus ratione voluptatum nihil libero nostrum magni nobis aut odit, beatae delectus quae illum. Optio, placeat!</ion-label>
+    </ion-item>
+
+    <ion-item>
+        <ion-avatar slot="start">
+          <ion-img src="https://source.unsplash.com/random/200x200" alt=""></ion-img>
+        </ion-avatar>
+        <ion-label>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus, consequatur? Consectetur, ipsam. Quaerat reiciendis repellendus ratione voluptatum nihil libero nostrum magni nobis aut odit, beatae delectus quae illum. Optio, placeat!</ion-label>
+      </ion-item>
+
+      <ion-item>
+          <ion-avatar slot="start">
+            <ion-img src="https://source.unsplash.com/random/200x200" alt=""></ion-img>
+          </ion-avatar>
+          <ion-label>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus, consequatur? Consectetur, ipsam. Quaerat reiciendis repellendus ratione voluptatum nihil libero nostrum magni nobis aut odit, beatae delectus quae illum. Optio, placeat!</ion-label>
+        </ion-item>
+
+        <ion-item>
+            <ion-avatar slot="start">
+              <ion-img src="https://source.unsplash.com/random/200x200" alt=""></ion-img>
+            </ion-avatar>
+            <ion-label>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus, consequatur? Consectetur, ipsam. Quaerat reiciendis repellendus ratione voluptatum nihil libero nostrum magni nobis aut odit, beatae delectus quae illum. Optio, placeat!</ion-label>
+          </ion-item>
+
+  </ion-list>
+
+  <h1>Listas</h1>
+
+  <ion-list>
+    <ion-item href="https://google.com.br">
+        <ion-icon slot="start" name="star"></ion-icon>
+        <ion-label>3 Consequatur asperiores amet minus alakdaljfaljlajfkjflajdlajf, </ion-label>
+    </ion-item>
+
+    <ion-item href="https://google.com.br">
+      <ion-icon slot="start" name="star"></ion-icon>
+      <ion-label>3 Consequatur asperiores amet minus alakdaljfaljlajfkjflajdlajf, </ion-label>
+  </ion-item>
+
+  <ion-item href="https://google.com.br">
+    <ion-icon slot="start" name="star"></ion-icon>
+    <ion-label>3 Consequatur asperiores amet minus alakdaljfaljlajfkjflajdlajf, </ion-label>
+</ion-item>
+  </ion-list>
+
+  <h4>Cartões</h4>
+
+  <ion-card>
+    <ion-card-content>
+      <ion-card-title>
+        Simple card
+      </ion-card-title>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-img src="https://source.unsplash.com/random/800x600" alt=""></ion-img>
+    <ion-card-content>
+      <ion-card-title>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, ipsum quia. Tenetur hic quas cupiditate quae vel fugit ea porro sit explicabo culpa. Numquam in, id neque perferendis eum quo.</ion-card-title>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card color="light" mode="ios">
+    <ion-card-content>
+      <ion-card-title>
+        <h1>Style IOS</h1>
+      </ion-card-title>
+    </ion-card-content>
+    <ion-img src="https://source.unsplash.com/random/800x600"></ion-img>
+    <ion-card-content>
+      <ion-card-title>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit
+      </ion-card-title>
+        Consequatur asperiores amet minus, ea est saepe fugiat ratione, perspiciatis voluptatem ipsum veniam consequuntur maxime, exercitationem officiis praesentium earum dignissimos rem corporis!
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card color="light" mode="md">
+      <ion-card-content>
+        <ion-card-title>
+          <h1>Style Android</h1>
+        </ion-card-title>
+      </ion-card-content>
+      <ion-img src="https://source.unsplash.com/random/800x600"></ion-img>
+      <ion-card-content>
+        <ion-card-title>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </ion-card-title>
+          Consequatur asperiores amet minus, ea est saepe fugiat ratione, perspiciatis voluptatem ipsum veniam consequuntur maxime, exercitationem officiis praesentium earum dignissimos rem corporis!
+      </ion-card-content>
+    </ion-card>
+
+    <h1>Cartões com cabeçalho</h1>
+    <ion-card>
+        <ion-card-header>
+          <ion-card-title>Title</ion-card-title>
+          <ion-card-subtitle>sub title</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <p>
+              ea est saepe fugiat ratione, perspiciatis voluptatem ipsum veniam consequuntur maxime, exercitationem officiis praesentium earum dignissimos rem corporis!
+
+          </p>
+        </ion-card-content>
+      </ion-card>
+
+      <h1>Cartões com item de lista</h1>
+      <ion-card>
+
+        <ion-item href="https://google.com.br">
+          <ion-icon slot="start" name="add"></ion-icon>
+          <ion-label>1 Consequatur asperiores amet minus alakdaljfaljlajfkjflajdlajf, </ion-label>
+        </ion-item>
+
+        <ion-item href="https://google.com.br">
+            <ion-icon slot="start" name="remove"></ion-icon>
+            <ion-label>2 Consequatur asperiores amet minus alakdaljfaljlajfkjflajdlajf, </ion-label>
+          </ion-item>
+
+          <ion-item href="https://google.com.br">
+              <ion-icon slot="start" name="star"></ion-icon>
+              <ion-label>3 Consequatur asperiores amet minus alakdaljfaljlajfkjflajdlajf, </ion-label>
+          </ion-item>
+
+      </ion-card>
+
+
+
+  <h1>buttons</h1>
+  <ion-button>button default</ion-button>
+  <ion-button herf="https://www.google.com.br">button link</ion-button>
+
+  <h1>Colors</h1>
+  <ion-button color="primary">primary</ion-button>
+  <ion-button color="secondary">secondary</ion-button>
+  <ion-button color="light">light</ion-button>
+  <ion-button color="success">success</ion-button>
+  <ion-button color="dark">dark</ion-button>
+  <ion-button color="tertiary">tertiary</ion-button>
+  <ion-button color="danger">danger</ion-button>
+  <ion-button color="warning">warning</ion-button>
+
+  <h1>button expand</h1>
+  <ion-button expand="full">full</ion-button>
+  <ion-button expand="full" color="light">full light</ion-button>
+  <ion-button expand="block" color="success">border arounded</ion-button>
+
+  <h1>button arounded</h1>
+  <ion-button shape="round" color="danger">rounded</ion-button>
+
+  <h1>button fill</h1>
+  <ion-button fill="outline">outiline</ion-button>
+  <ion-button fill="outline" color="secondary" expand="block">fill</ion-button>
+
+  <h1>icons</h1>
+  <ion-button>
+    <ion-icon name="star"></ion-icon>
+    icon
+  </ion-button>
+  <ion-button>
+    <ion-icon slot="end" name="star"></ion-icon>
+    icon
+  </ion-button>
+  <ion-button>
+    <ion-icon slot="icon-only" name="star"></ion-icon>
+  </ion-button>
+
+  <h1>button size</h1>
+  <ion-button size="large">large</ion-button>
+  <ion-button color="light">normal</ion-button>
+  <ion-button size="small" color="danger">pequeno</ion-button>
+  -->
+
+</ion-content>

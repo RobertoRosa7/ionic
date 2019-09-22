@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button slot="start" defaultHref="/"></ion-back-button>
+    <ion-title>Detalhes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card *ngIf="data">
+    <ion-card-header>
+      <ion-card-title>
+        CNPJ: {{data.cnpj}}
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item class="description">{{data.nome}}</ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
